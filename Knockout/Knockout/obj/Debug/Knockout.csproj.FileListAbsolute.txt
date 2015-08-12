@@ -1,0 +1,17 @@
+D:\New folder (2)\Knockout\Knockout\bin\Knockout.dll.config
+D:\New folder (2)\Knockout\Knockout\bin\Knockout.dll
+D:\New folder (2)\Knockout\Knockout\bin\Knockout.pdb
+D:\New folder (2)\Knockout\Knockout\obj\Debug\Knockout.csprojResolveAssemblyReference.cache
+D:\New folder (2)\Knockout\Knockout\obj\Debug\Knockout.dll
+D:\New folder (2)\Knockout\Knockout\obj\Debug\Knockout.pdb
+E:\applications\POC\Knockout\Knockout\Knockout\bin\Knockout.dll
+E:\applications\POC\Knockout\Knockout\Knockout\bin\Knockout.pdb
+E:\applications\POC\Knockout\Knockout\Knockout\obj\Debug\Knockout.dll
+E:\applications\POC\Knockout\Knockout\Knockout\obj\Debug\Knockout.pdb
+E:\applications\POC\Knockout\Knockout\Knockout\obj\Debug\Knockout.csprojResolveAssemblyReference.cache
+D:\POC\Knockout\Knockout\Knockout\Knockout\bin\Knockout.dll.config
+D:\POC\Knockout\Knockout\Knockout\Knockout\bin\Knockout.dll
+D:\POC\Knockout\Knockout\Knockout\Knockout\bin\Knockout.pdb
+D:\POC\Knockout\Knockout\Knockout\Knockout\obj\Debug\Knockout.dll
+D:\POC\Knockout\Knockout\Knockout\Knockout\obj\Debug\Knockout.pdb
+D:\POC\Knockout\Knockout\Knockout\Knockout\obj\Debug\Knockout.csprojResolveAssemblyReference.cache

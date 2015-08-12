@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-1.11.2.js"></script>
+    <script src="Scripts/knockout-3.3.0.js"></script>
+
+    <script src="Scripts/knockout.validation.js"></script>
+    <script src="Scripts/knockout.validation.min.js"></script>
+
+    <script src="index.js"></script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <script id="customMessageTemplate" type="text/html">
+        <em class="customMessage" data-bind="validationMessage: field"></em>
+    </script>
+    <!--Style binding-->
+    <!--Event binding-->
+
+    <form id="formId" data-bind="style:{'background-color':color}, event:{mouseover:changeColor}">
+        <img src="Content//gI_79461_Profile 2x2 Logo.jpg" style="width:45px;height:45px; float:left">
+        <h2 style="color: bisque; text-align:start;">Book your Ticket</h2>
+        <marquee behavior="scroll" direction="left" style="color: bisque">
+            Welcome to flight booking portal.........
+        </marquee>
+
+    </form>
+    <br />
+    <div class="container" id="divId">
+        <!--<a data-bind="text:Errors.length"> Errors</a>-->
+        <div class=" row">
+
+            <!--Template binding-->
+
+            <div class="col-sm-6">
+                <div data-bind="template:{name:'search-template'}"></div>
+            </div>
+
+            <!--Template binding-->
+            <!--If biniding-->
+
+            <div class="col-sm-6">
+                <div data-bind="template:{name:'find-template',if:find}"></div>
+            </div>
+        </div>
+
+        <!--Template binding-->
+        <!--If biniding-->
+
+        <div class="col-sm-3" data-bind="template:{name:'details-template',if:btn}"></div>
+
+        <!--Visible binding-->
+
+        <div class="col-sm-6" data-bind="visible:finalbooking" style="background-image:url(Content/jet.jpg);height:250px;width:624px">
+            <h3 style="text-align:center;color:greenyellow"> Your booking is successful... Thank you...... </h3>
+        </div>
+    </div>
+
+    <script type="text/html" id="search-template">
+        <table class="table table-striped">
+            <tr>
+                <td>
+                    <!--Checked binding-->
+                    <div>
+                        <input type="checkbox" value="0" data-bind="checked:RoundTrip" />Round Trip
+                    </div>
+                </td>
+                <td>
+                    <!--Checked binding-->
+                    <div>
+                        <input type="checkbox" data-bind="checked:OneWay" />One Way
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <!--Options biniding-->
+                <td>
+                    <select data-bind="options:availableCountries,value:fromSelectedCountry,optionsCaption:'Leaving from...'" style="width: 200px"></select>
+                </td>
+                <!--Options biniding-->
+                <td>
+                    <select data-bind="options:availableCountries,value:toSelectedCountry,optionsCaption:'Going to...'" style="width: 200px"></select>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Travel Date:</td>
+                <!--ifnot Binding-->
+                <td data-bind="ifnot:OneWay">Return Date:</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="date" data-bind="value:travelDate" style="width: 200px" />
+                </td>
+                <!--ifnot Binding-->
+                <td data-bind="ifnot:OneWay">
+                    <input type="date" data-bind="value:returnDate" style="width: 200px" />
+                </td>
+            </tr>
+            <tr>
+                <!--Options biniding-->
+                <td>
+                    <select data-bind="options:Number,value:NoSelectedAdult,optionsCaption:'Adult'" style="width: 100px"></select>
+                    <select data-bind="options:Number,value:NoSelectedchildren,optionsCaption:'Children'" style="width: 100px"></select>
+                </td>
+                <td>
+                    <select data-bind="options:Number,value:NoSelectedinfant,optionsCaption:'infant'" style="width: 100px"></select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <!--Click biniding-->
+                <td>
+                    <button data-bind="click:find" style="float:right">Find Flights</button>
+                </td>
+            </tr>
+        </table>
+    </script>
+
+    <script type="text/html" id="find-template">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th> Flight Details: </th>
+                </tr>
+                <tr>
+                    <th style="font-style:italic">From</th>
+                    <th style="font-style:italic">To</th>
+                    <th style="font-style:italic">Travel Date</th>
+                    <th style="font-style:italic">Time</th>
+                </tr>
+            </thead>
+            <!--foreach binding-->
+            <tbody data-bind="foreach:timelst">
+                <tr>
+                    <td data-bind="text:from"></td>
+                    <td data-bind="text:to"></td>
+                    <td data-bind="text:date" style="color:chocolate"></td>
+                    <td data-bind="text:time"></td>
+                    <!--Click binding with paranet-->
+                    <td><button data-bind="click:$parent.btn">Book</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </script>
+
+    <script type="text/html" id="details-template">
+        <table>
+            <tr>
+                <!--Text binding-->
+                <td>
+                    <h4 style="text-align:center">Your Ticket Details:</h4>
+                    <p>From: <span data-bind="text:fromSelectedCountry"></span></p>
+                    <p>To: <span data-bind="text:toSelectedCountry"></span></p>
+                    <p>Travel Date: <span data-bind="text:travelDate"></span></p>
+                    <p>Return Date: <span data-bind="text:returnDate"></span></p>
+                    <p>Adult Count: <span data-bind="text:NoSelectedAdult"></span></p>
+                    <p>Children Count: <span data-bind="text:NoSelectedchildren"></span></p>
+                    <p>Infant Count: <span data-bind="text:NoSelectedinfant"></span></p>
+                    <button data-bind="click:finalbooking">Conform</button>
+                </td>
+            </tr>
+        </table>
+    </script>
+
+    <!--<script>
+
+        $(function () {
+            var attr = {
+                color: ko.observable("azure"),
+                changeColor: changeColor
+
+            };
+            function changeColor() {
+                attr.color("#" + (Math.random() * 0xFFFFFF << 0).toString(16));
+                toastr.info(attr.color());
+            }
+            ko.applyBindings(attr, document.getElementById("id-viewModel2"));
+        })();
+    </script>-->
+
+</body>
+</html>

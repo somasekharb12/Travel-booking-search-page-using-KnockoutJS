@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-1.11.2.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <!--<table data-bind="if:book" style="border: groove">-->
+    <table id=" " style="border: groove">
+        <tr>
+            <td>
+                <h3>Your Ticket Details:</h3>
+                <p>From: <span data-bind="text:fromSelectedCountry"></span></p>
+                <p>To: <span data-bind="text:toSelectedCountry"></span></p>
+                <p>Travel Date: <span data-bind="text:travelDate"></span></p>
+                <p>Return Date: <span data-bind="text:returnDate"></span></p>
+                <p>Adult Count: <span data-bind="text:NoSelectedAdult"></span></p>
+                <p>Children Count: <span data-bind="text:NoSelectedchildren"></span></p>
+                <p>Infant Count: <span data-bind="text:NoSelectedinfant"></span></p>
+                <button data-bind="click:finalbook">Conform</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
